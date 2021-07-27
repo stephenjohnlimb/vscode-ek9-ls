@@ -1,7 +1,7 @@
 {
 	"name": "ek9-ls",
-	"displayName": "EK9 Language Server",
-	"description": "Simple language server for EK9",
+	"displayName": "EK9 Extension",
+	"description": "Language Server Extension for EK9",
 	"version": "0.0.1",
 	"publisher": "Stephen Limb",
 	"repository": "https://github.com/stephenjohnlimb/vscode-ek9-ls",
@@ -16,13 +16,19 @@
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "EK9 Language Server",
+			"title": "EK9 Java Command",
 			"properties": {
-				"ek9-ls.serverPath": {
+				"ek9-ls.javaCommand": {
 					"scope": "window",
 					"type": "string",
 					"default": "",
-					"description": "The file path to the EK9 compiler."
+					"description": "The file path to Java."
+				},
+				"ek9-ls.compilerPath": {
+					"scope": "window",
+					"type": "string",
+					"default": "",
+					"description": "The file path to ek9.jar."
 				}
 			}
 		},
