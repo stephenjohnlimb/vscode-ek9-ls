@@ -3,13 +3,13 @@
         "lineComment": "//",
         "blockComment": [ "<!-", "-!>" ]
     },
-    // symbols used as brackets
+    
     "brackets": [
         ["{", "}"],
         ["[", "]"],
         ["(", ")"]
     ],
-    // symbols that are auto closed when typing
+    
     "autoClosingPairs": [
         ["{", "}"],
         ["[", "]"],
@@ -18,7 +18,7 @@
         { "open": "`", "close": "`", "notIn": ["string"] },
         { "open": "'", "close": "'", "notIn": ["string"] }
     ],
-    // symbols that can be used to surround a selection
+    
     "surroundingPairs": [
         ["{", "}"],
         ["[", "]"],
