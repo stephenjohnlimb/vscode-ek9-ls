@@ -3,7 +3,7 @@
 	"displayName": "EK9 Extension",
 	"description": "Language Server Extension for EK9",
 	"version": "0.0.1",
-	"publisher": "Stephen Limb",
+	"publisher": "stephenjohnlimb",
 	"repository": "https://github.com/stephenjohnlimb/vscode-ek9-ls",
 	"engines": {
 		"vscode": "^1.53.0"
@@ -35,7 +35,7 @@
 		"languages": [
 			{
 				"id": "ek9",
-				"aliases": [					
+				"aliases": [
 					"ek9"
 				],
 				"extensions": [
@@ -46,9 +46,9 @@
 		],
 		"grammars": [
 			{
-			  "language": "ek9",
-			  "scopeName": "source.ek9",
-			  "path": "./syntaxes/ek9.tmLanguage"
+				"language": "ek9",
+				"scopeName": "source.ek9",
+				"path": "./syntaxes/ek9.tmLanguage"
 			}
 		],
 		"commands": [
