@@ -10,22 +10,31 @@ import { ChildProcess, spawn } from "child_process";
 let client: LanguageClient;
 let server: ChildProcess;
 
-function startServer(serverPath : string) {
+function startServer(serverPath : string, ek9Path : string) {
 
-    if (serverPath) {
+    if (serverPath && ek9Path) {
+        console.log('EK9 extension active: lsp server is [' + serverPath + '] [' + ek9Path + ']');
         const serverOptions: ServerOptions = async (): Promise<ChildProcess> => {
-            server = spawn(serverPath);
+            const args = [
+                "-jar",
+                ek9Path,
+                "-ls"
+            ];
+            server = spawn(serverPath, args);
             return server;
         };
 
         const clientOptions: LanguageClientOptions = {
-            documentSelector: [{ scheme: "file", language: "volpe" }],
-            diagnosticCollectionName: "volpe-ls",
+            documentSelector: [{ scheme: "file", language: "ek9" }],
+            diagnosticCollectionName: "ek9-ls",
         };
 
-        client = new LanguageClient("volpe-ls", "Volpe Language Server", serverOptions, clientOptions);
+        client = new LanguageClient("ek9-ls", "EK9 Language Server", serverOptions, clientOptions);
 
         client.start();
+    }
+    else {
+        console.error('EK9 extension NOT active: lsp server configuration is incomplete');
     }
 }
 
@@ -35,22 +44,44 @@ async function killServer() : Promise<void> {
 }
 
 export function activate(context: ExtensionContext) {
-    const config = workspace.getConfiguration("volpe-ls");
-    const pathConfig : string | undefined = config.get("serverPath");
-    const serverPath : string = pathConfig ? pathConfig : "";
+    const config = workspace.getConfiguration("ek9-ls");
+    const javaCommand : string | undefined = config.get("javaCommand");
+    if(javaCommand)
+    {
+        console.log('EK9 extension: java command [' + javaCommand + ']');
+    }
+    else
+    {
+        console.error('EK9 extension: ek9-ls.javaCommand must be set to the path for a java');
+    }
 
-    startServer(serverPath);
+    const compilerPath : string | undefined = config.get("compilerPath");
+    if(compilerPath)
+    {
+        console.log('EK9 extension: compiler [' + compilerPath + ']');
+    }
+    else
+    {
+        console.error('EK9 extension: ek9-ls.compilerPath must be set to the path for ek9.jar (the compiler)');
+    }
 
-    context.subscriptions.push(commands.registerCommand("volpe-ls.restartServer", async () => {
+    const serverPath : string = javaCommand ? javaCommand : "c:\\jdk-15\\bin\\java";
+    const ek9Path : string = compilerPath ? compilerPath : "C:\\Users\\StephenLimb\\src\\framework\\cli\\target\\ek9.jar";
+
+    startServer(serverPath, ek9Path);
+
+    context.subscriptions.push(commands.registerCommand("ek9-ls.restartServer", async () => {
         await killServer();
-        startServer(serverPath);
+        startServer(serverPath, ek9Path);
     }));
 
-    context.subscriptions.push(commands.registerCommand("volpe-ls.killServer", async () => {
+    context.subscriptions.push(commands.registerCommand("ek9-ls.killServer", async () => {
         await killServer();
     }));
+
 }
 
 export function deactivate(): Thenable<void> | undefined {
+    console.log('EK9 extension deactivate: lsp server');
     return killServer();
 }

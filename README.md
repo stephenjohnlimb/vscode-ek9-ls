@@ -1,13 +1,12 @@
-# Volpe Language Server
+# EK9 Language Server
 
-A simple language server for the Volpe programming language.
+A simple language server for the EK9 programming language.
 
 ## Usage
 
-Set the `"volpe-ls.serverPath"` configuration setting to the full path of the Volpe Language Server executable.
-
-To make use of semantic highlighting, make sure you either use a colour theme that supports it, or enable it manually by adding `"editor.semanticHighlighting.enabled": true` to your `settings.json`.
+Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java ie (c:\jdk-15\bin\java).
+Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar (that has the compiler). 
 
 ## Credits
 
-This extension is based on [glspc](https://marketplace.visualstudio.com/items?itemName=torokati44.glspc), the Generic LSP Client for Visual Studio Code.
+This extension is based on [volpe-ls](https://github.com/ViliamVadocz/vscode-volpe-ls), the Generic LSP Client for Visual Studio Code.

@@ -1,52 +1,58 @@
 {
-	"name": "volpe-ls",
-	"displayName": "Volpe Language Server",
-	"description": "Simple language server for Volpe",
-	"version": "0.0.3",
-	"publisher": "ViliamVadocz",
-	"repository": "https://github.com/ViliamVadocz/vscode-volpe-ls",
+	"name": "ek9-ls",
+	"displayName": "EK9 Language Server",
+	"description": "Simple language server for EK9",
+	"version": "0.0.1",
+	"publisher": "Stephen Limb",
+	"repository": "https://github.com/stephenjohnlimb/vscode-ek9-ls",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
 	"categories": [],
 	"activationEvents": [
-		"onLanguage:volpe"
+		"onLanguage:ek9"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "Volpe Language Server",
+			"title": "EK9 Language Server",
 			"properties": {
-				"volpe-ls.serverPath": {
+				"ek9-ls.serverPath": {
 					"scope": "window",
 					"type": "string",
 					"default": "",
-					"description": "The file path to the Volpe language server executable."
+					"description": "The file path to the EK9 compiler."
 				}
 			}
 		},
 		"languages": [
 			{
-				"id": "volpe",
-				"aliases": [
-					"Volpe",
-					"volpe"
+				"id": "ek9",
+				"aliases": [					
+					"ek9"
 				],
 				"extensions": [
-					".vlp"
+					".ek9"
 				],
 				"configuration": "./language-configuration.json"
 			}
 		],
+		"grammars": [
+			{
+			  "language": "ek9",
+			  "scopeName": "source.ek9",
+			  "path": "./syntaxes/ek9.tmLanguage"
+			}
+		],
 		"commands": [
 			{
-				"command": "volpe-ls.restartServer",
-				"title": "Volpe Language Server: Restart server"
+				"command": "ek9-ls.restartServer",
+				"title": "EK9 Language Server: Restart server"
 			},
 			{
-				"command": "volpe-ls.killServer",
-				"title": "Volpe Language Server: Kill server"
+				"command": "ek9-ls.killServer",
+				"title": "EK9 Language Server: Kill server"
 			}
 		]
 	},
