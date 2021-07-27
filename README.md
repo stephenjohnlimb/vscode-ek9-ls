@@ -1,6 +1,6 @@
 # EK9 Language Server
 
-A simple language server for the EK9 programming language.
+A vscode language server extension for the EK9 programming language.
 
 ## Usage
 
