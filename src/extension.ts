@@ -65,8 +65,8 @@ export function activate(context: ExtensionContext) {
         console.error('EK9 extension: ek9-ls.compilerPath must be set to the path for ek9.jar (the compiler)');
     }
 
-    const serverPath : string = javaCommand ? javaCommand : "c:\\jdk-15\\bin\\java";
-    const ek9Path : string = compilerPath ? compilerPath : "C:\\Users\\StephenLimb\\src\\framework\\cli\\target\\ek9.jar";
+    const serverPath : string = javaCommand ? javaCommand : "";
+    const ek9Path : string = compilerPath ? compilerPath : "";
 
     startServer(serverPath, ek9Path);
 
