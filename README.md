@@ -5,6 +5,7 @@ A simple language server for the EK9 programming language.
 ## Usage
 
 Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java ie (c:\jdk-15\bin\java).
+
 Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar (that has the compiler). 
 
 ## Credits
