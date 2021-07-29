@@ -67,7 +67,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(while|for|as|of|then|if|else|by|in|is|allow|extends|do|switch|given|case|when|default|try|throw|catch|handle|finally|cat|filter|group|split|call|async|package|map|sort|flatten|uniq|tee|head|tail|skip|join|collect|reduce)\b</string>
+			<string>\b(while|for|as|of|then|if|else|by|in|is|allow|extends|do|switch|given|case|when|default|try|throw|catch|handle|finally|cat|filter|select|group|split|call|async|package|map|sort|flatten|uniq|tee|head|tail|skip|join|collect|reduce)\b</string>
 			<key>name</key>
 			<string>keyword.control.ek9</string>
 		</dict>
