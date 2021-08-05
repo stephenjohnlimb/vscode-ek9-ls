@@ -14,6 +14,12 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+    "snippets": [
+      {
+        "language": "ek9",
+        "path": "./snippets/snippets.json"
+      }
+    ],
 		"configuration": {
 			"type": "object",
 			"title": "EK9 Java Command",

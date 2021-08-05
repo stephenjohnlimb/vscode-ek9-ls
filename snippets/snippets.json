@@ -1,0 +1,315 @@
+{    
+  "Doc comment" : {      
+    "prefix": "_doc",      
+    "body": [  
+      "<?-",
+      "",      
+      "-?>"
+    ],
+    "description": "New document comment"
+  },
+  "Method/Function" : {
+    "prefix": "_mf",
+    "body": [  
+      "$1()",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function or method"
+  },
+  "Method/Function with return" : {
+    "prefix": "_mfr",
+    "body": [  
+      "$1()",
+      "\t<-${2:rtn} as $3: $4",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function or method with return"
+  },
+  "Method/Function one param" : {
+    "prefix": "_mf1",
+    "body": [  
+      "$1()",
+      "\t->${2:arg} as $3",
+      "\t$0",
+      ""
+    ],
+    "description": "New function or method one parameter"
+  },
+  "Method/Function one param with return" : {
+    "prefix": "_mfr1",
+    "body": [  
+      "$1()",
+      "\t-> ${2:arg} as $3",
+      "\t<- ${4:rtn} as $5: $6",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function or method one parameter and return"
+  },
+  "Method/Function two params" : {
+    "prefix": "_mf2",
+    "body": [  
+      "$1()",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4:arg2} as $5",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function or method two parameters"
+  },
+  "Method/Function two params and return" : {
+    "prefix": "_mfr2",
+    "body": [  
+      "$1()",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4:arg2} as $5",
+      "\t<-",
+      "\t\t${6:rtn} as $7: $8",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function or method two parameters and return"
+  },
+  "Abstract Method/Function" : {
+    "prefix": "_amf",
+    "body": [  
+      "$1() as abstract",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method"
+  },
+  "Abstract Method/Function with return" : {
+    "prefix": "_amfr",
+    "body": [  
+      "$1() as abstract",
+      "\t<-${2:rtn} as $3: $4",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method with return"
+  },
+  "Abstract Method/Function one param" : {
+    "prefix": "_amf1",
+    "body": [  
+      "$1() as abstract",
+      "\t->${2:arg} as $3",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method one parameter"
+  },
+  "Abstract Method/Function one param with return" : {
+    "prefix": "_amfr1",
+    "body": [  
+      "$1() as abstract",
+      "\t->${2:arg} as $3",
+      "\t<-${4:rtn} as $5: $6",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method one parameter and return"
+  },
+  "Abstract Method/Function two params" : {
+    "prefix": "_amf2",
+    "body": [  
+      "$1() as abstract",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4:arg2} as $5",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method two parameters"
+  },
+  "Abstract Method/Function two params and return" : {
+    "prefix": "_amfr2",
+    "body": [  
+      "$1() as abstract",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4:arg2} as $5",
+      "\t<-",
+      "\t\t${6:rtn} as $7: $8",
+      "\t$0",      
+      ""
+    ],
+    "description": "New abstract function or method two parameters and return"
+  },
+  "Extends Function" : {
+    "prefix": "_ef",
+    "body": [  
+      "$1() is $2",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function"
+  },
+  "Extends Function with return" : {
+    "prefix": "_efr",
+    "body": [  
+      "$1() is $2",
+      "\t<-${3:rtn} as $4: $5",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function with return"
+  },
+  "Extends Function one param" : {
+    "prefix": "_ef1",
+    "body": [  
+      "$1() is $2",
+      "\t->${3:arg} as $4",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function one parameter"
+  },
+  "Extends Function one param with return" : {
+    "prefix": "_efr1",
+    "body": [  
+      "$1() is $2",
+      "\t->${3:arg1} as $4",
+      "\t<-${5:rtn} as $6: $7",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function one parameter and return"
+  },
+  "Extends Function two params" : {
+    "prefix": "_ef2",
+    "body": [  
+      "$1() is $2",
+      "\t->",
+      "\t\t${3:arg1} as $4",
+      "\t\t${5:arg2} as $6",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function two parameters"
+  },
+  "Extends Function two params and return" : {
+    "prefix": "_efr2",
+    "body": [  
+      "$1() is $2",
+      "\t->",
+      "\t\t${3:arg1} as $4",
+      "\t\t${5:arg2} as $6",
+      "\t<-",
+      "\t\t${7:rtn} as $8: $9",
+      "\t$0",      
+      ""
+    ],
+    "description": "New function extending abstract function two parameters and return"
+  },
+  "Override Method" : {
+    "prefix": "_om",
+    "body": [  
+      "override $1()",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method"
+  },
+  "Override Method with return" : {
+    "prefix": "_omr",
+    "body": [  
+      "override $1()",
+      "\t<-${2:rtn} as $3: $4",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method with return"
+  },
+  "Override Method one param" : {
+    "prefix": "_om1",
+    "body": [  
+      "override $1()",
+      "\t->${2:arg} as $3",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method one parameter"
+  },
+  "Override Method one param with return" : {
+    "prefix": "_omr1",
+    "body": [  
+      "override $1()",
+      "\t->${2:arg} as $3",
+      "\t<-${4:rtn} as $5: $6",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method one parameter and return"
+  },
+  "Override Method two params" : {
+    "prefix": "_om2",
+    "body": [  
+      "override $1()",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4:arg2} as $5",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method two parameters"
+  },
+  "Override Method two params and return" : {
+    "prefix": "_omr2",
+    "body": [  
+      "override $1()",
+      "\t->",
+      "\t\t${2:arg1} as $3",
+      "\t\t${4|arg2} as $5",
+      "\t<-",
+      "\t\t${6:rtn} as $7: $8",
+      "\t$0",      
+      ""
+    ],
+    "description": "Override method two parameters and return"
+  },
+  "Operator" : {
+    "prefix": "_op",
+    "body": [  
+      "operator ${1|++,--|}",      
+      "\t$0",      
+      ""
+    ],
+    "description": "Operator mutation"
+  },
+  "Operator and return" : {
+    "prefix": "_opr",
+    "body": [  
+      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|}",
+      "\t<-${2:rtn} as $3: $4",
+      "\t$0",      
+      ""
+    ],
+    "description": "Operator and return"
+  },
+  "Operator one param" : {
+    "prefix": "_op1",
+    "body": [  
+      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||}",
+      "\t->${2:arg} as $3",
+      "\t$0",      
+      ""
+    ],
+    "description": "Operator one parameter"
+  },
+  "Operator one param and return" : {
+    "prefix": "_opr1",
+    "body": [  
+      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|}",
+      "\t->${2:arg} as $3",
+      "\t<-${4:rtn} as $5: $6",
+      "\t$0",      
+      ""
+    ],
+    "description": "Operator one parameter and return"
+  }
+}
