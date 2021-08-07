@@ -1,9 +1,9 @@
 #!ek9
 defines module net.customer
-     
+  
   defines type
     PostCode as String
-    
+
   defines constant
     
     v1 <- 21.0  

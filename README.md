@@ -8,6 +8,7 @@ Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java ie
 
 Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar (that has the compiler). 
 
+Now includes text mate syntax highlighting and code snippets for common operations.
 ## Credits
 
 This extension is based on [volpe-ls](https://github.com/ViliamVadocz/vscode-volpe-ls), the Generic LSP Client for Visual Studio Code.

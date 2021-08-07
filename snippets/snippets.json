@@ -209,7 +209,7 @@
     "prefix": "_mfr",
     "body": [  
       "$1()",
-      "\t<- ${2:rtn} as ${3: type}: $4",
+      "\t<- ${2:rtn} as ${3:type}: $4",
       "\t$0"
     ],
     "description": "New function or method with return"
@@ -606,7 +606,105 @@
       "${1:result} <- cat ${2:collection} | ${3|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} | collect as ${4:type}"      
     ],
     "description": "Cat to Stream and Collect"
+  },
+  "Basic Package" : {
+    "prefix": "_bp",
+    "body": [  
+      "defines package",
+      "",
+      "\t// Name of the package",
+      "\tdescription <- \"${1:Basic Package}\"",
+      "",
+      "\t// List of files to be included in the build",  
+      "\tincludeFiles <- [",
+      "\t\t\"${2:file.ek9}\"",
+      "\t\t]",
+      "$0"
+    ],
+    "description": "Basic Package Construct list source files"
+  },
+  "Simple Project Package" : {
+    "prefix": "_spp",
+    "body": [  
+      "defines package",
+      "",
+      "\t// Name of the package",
+      "\tdescription <- \"${1:Project Package}\"",
+        "",
+      "\t// Include all ek9 source files found under directory",
+      "\tapplyStandardIncludes <- true",
+      "$0"
+    ],
+    "description": "Simple Project Package Construct no dependencies"
+  },
+  "Project Package" : {
+    "prefix": "_pp",
+    "body": [  
+      "defines package",
+      "",
+      "\t// Name of the package",
+      "\tdescription <- \"${1:Project Package}\"",
+      "",
+      "\t// Include all ek9 source files found under directory",  
+      "\tapplyStandardIncludes <- true",
+      "",
+      "\t// Exclude standard list of files such as .gitignore",
+      "\tapplyStandardExcludes <- ${2|true,false|}",
+      "",
+      "\t// Dependencies and what if any to exclude",
+      "",
+      "\tdeps <- {",
+      "\t\t\"${3:dep1}\": \"${4:0.0.1-0}\"",
+      "\t\t}",
+      "",
+      "\texcludeDeps <- {",
+      "\t\t\"${5:fromDependency}\": \"${6:excludeDependency}\"",
+      "\t\t}",
+      "$0"
+    ],
+    "description": "Project Package Construct"
+  },
+  "Full Package" : {
+    "prefix": "_fp",
+    "body": [  
+      "defines package",
+      "",
+      "\t// Is this package to be accessible",
+      "\tpublicAccess <- ${1|true,false|}",
+      "",
+      "\tversion <- ${2:0.0.1-0}",
+      "",
+      "\t// Name of the package",
+      "\tdescription <- \"${3:New Package}\"",
+      "",
+      "\t// Add one or more tags for package search",
+      "\ttags <- [",
+      "\t\t\"${4:searchableTag}\"",
+      "\t\t]",
+      "",
+      "\tlicense <- \"${5:MIT}\"",
+      "",
+      "\tapplyStandardIncludes <- ${6|true,false|}",
+      "",
+      "\tincludeFiles <- [",
+      "\t\t\"${7:License.txt}\"",
+      "\t\t]",
+      "",
+      "\t// Exclude standard list of files such as .gitignore",
+      "\tapplyStandardExcludes <- ${8|true,false|}",
+      "",
+      "\t// Dependencies and what if any to exclude",
+      "",
+      "\tdeps <- {",
+      "\t\t\"${9:dep1}\": \"${10:0.0.1-0}\"",
+      "\t\t}",
+      "",
+      "\texcludeDeps <- {",
+      "\t\t\"${11:fromDependency}\": \"${12:excludeDependency}\"",
+      "\t\t}",
+      "$0"
+    ],
+    "description": "Full Package Construct"
   }
-
 
 }
