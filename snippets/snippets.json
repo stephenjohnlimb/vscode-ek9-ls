@@ -12,8 +12,11 @@
     "prefix": "_ek9",      
     "body": [  
       "#!ek9",
-      "defines module ${1:module.name}",      
-      "\t$0"
+      "defines module ${1:module.name}",
+      "",
+      "\t$0",
+      "",      
+      "//EOF"
     ],
     "description": "New EK9 source file"
   },
