@@ -590,7 +590,7 @@
   "Abstract Operator" : {
     "prefix": "_absop",
     "body": [  
-      "operator ${1|++,--|}",      
+      "operator ${1|++,--|} as abstract",      
       "$0"
     ],
     "description": "Abstract Operator mutation"
@@ -598,7 +598,7 @@
   "Abstract Operator and return" : {
     "prefix": "_absopr",
     "body": [  
-      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|}",
+      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|} as abstract",
       "\t<- ${2:rtn} as ${3:type}",
       "$0"
     ],
@@ -607,7 +607,7 @@
   "Abstract Operator one param" : {
     "prefix": "_abasop1",
     "body": [  
-      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||}",
+      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||} as abstract",
       "\t-> ${2:arg} as ${3:type}",
       "$0"
     ],
@@ -616,7 +616,7 @@
   "Abstract Operator one param and return" : {
     "prefix": "_absopr1",
     "body": [  
-      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|}",
+      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|} as abstract",
       "\t-> ${2:arg} as ${3:type}",
       "\t<- ${4:rtn} as ${5:type}",
       "$0"
@@ -767,6 +767,23 @@
       "$0"      
     ],
     "description": "Throw new Exception"
+  },
+  "Catch statement" : {
+    "prefix": "_catc",
+    "body": [      
+      "catch",  
+      "\t-> ${1:ex} as ${2:Exception}",
+      "\t$0"      
+    ],
+    "description": "Catch statement"
+  },
+  "Finally statement" : {
+    "prefix": "_fin",
+    "body": [        
+      "finally",
+      "\t$0"      
+    ],
+    "description": "Catch statement"
   },
   "Try catch statement" : {
     "prefix": "_trca",
