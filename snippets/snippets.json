@@ -20,598 +20,116 @@
     ],
     "description": "New EK9 source file"
   },
-  "Extend Class/Component/Record/Function" : {
-    "prefix": "_e",
+  "Defines Module" : {      
+    "prefix": "_defmod",      
     "body": [  
-      "$1 is $2",
+      "defines module ${1:module.name}",
+      "",
       "\t$0"
     ],
-    "description": "New Class/Component/Record/Function extending base"
+    "description": "Defines Module"
   },
-  "Abstract Class/Component/Record" : {
-    "prefix": "_a",
+  "Defines Constant" : {      
+    "prefix": "_defcon",      
     "body": [  
-      "$1 as abstract",
+      "defines constant",
+      "",
       "\t$0"
     ],
-    "description": "New Abstract Class/Component/Record"
-  },   
-  "Abstract Class/Component/Record extending" : {
-    "prefix": "_ae",
+    "description": "Defines Constant"
+  },
+  "Defines Program" : {      
+    "prefix": "_defpro",      
     "body": [  
-      "$1 is ${2:base} as abstract",
+      "defines program",
+      "",
       "\t$0"
     ],
-    "description": "New Abstract Class/Component/Record extending base"
-  }, 
-  "Open Class/Component/Record extending" : {
-    "prefix": "_oe",
+    "description": "Defines Program"
+  },
+  "Defines Type" : {      
+    "prefix": "_deftyp",      
     "body": [  
-      "$1 is ${2:base} as open",
+      "defines type",
+      "",
       "\t$0"
     ],
-    "description": "New open Class/Component/Record extending base"
+    "description": "Defines Type"
   },
-  "Extend Trait" : {
-    "prefix": "_et",
+  "Defines Function" : {      
+    "prefix": "_deffun",      
     "body": [  
-      "$1 with trait of ${2:trait}",
+      "defines function",
+      "",
       "\t$0"
     ],
-    "description": "New Trait with Traits of base"
+    "description": "Defines Function"
   },
-  "Class with Trait delegation" : {
-    "prefix": "_ctd1",
+  "Defines Record" : {      
+    "prefix": "_defrec",      
     "body": [  
-      "$1 with trait of ${2:trait} by ${3:property}",
+      "defines record",
+      "",
       "\t$0"
     ],
-    "description": "New Class with a trait delegation"
+    "description": "Defines Record"
   },
-  "Class with multiple Trait delegation" : {
-    "prefix": "_ctd2",
+  "Defines Class" : {      
+    "prefix": "_defcla",      
     "body": [  
-      "$1 with trait of ${2:trait1} by ${3:property1}, ${4:trait2} by ${5:property2}",
+      "defines class",
+      "",
       "\t$0"
     ],
-    "description": "New Class with multiple trait delegation"
+    "description": "Defines Class"
   },
-  "Class with Traits" : {
-    "prefix": "_ct",
+  "Defines Trait" : {      
+    "prefix": "_deftra",      
     "body": [  
-      "$1 with trait of ${2:trait}",
+      "defines trait",
+      "",
       "\t$0"
     ],
-    "description": "New Class with Traits"
+    "description": "Defines Trait"
   },
-  "Extend Class adding Traits" : {
-    "prefix": "_ect",
+  "Defines Text" : {      
+    "prefix": "_deftex",      
     "body": [  
-      "$1 is ${2:base} with trait of ${3:trait}",
+      "defines text for \"${1:lang}\"",
+      "",
       "\t$0"
     ],
-    "description": "New Class extending base adding Traits"
+    "description": "Defines Text"
   },
-  "Abstract Extend Class adding Traits" : {
-    "prefix": "_aect",
+  "Defines Component" : {      
+    "prefix": "_defcom",      
     "body": [  
-      "$1 is ${2:base} with trait of ${3:trait} as abstract",
+      "defines component",
+      "",
       "\t$0"
     ],
-    "description": "New Abstract Class extending base adding Traits"
-  },       
-  "Dynamic Function" : {
-    "prefix": "_df",
+    "description": "Defines Component"
+  },
+  "Defines Application" : {      
+    "prefix": "_defapp",      
     "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base}",      
+      "defines application",
+      "",
       "\t$0"
     ],
-    "description": "New dynamic function extending abstract function"
+    "description": "Defines Application"
   },
-  "Dynamic Pure Function" : {
-    "prefix": "_dpf",
+  "Defines Service" : {      
+    "prefix": "_defser",      
     "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base}",      
+      "defines service",
+      "",
       "\t$0"
     ],
-    "description": "New dynamic pure function extending abstract function"
-  },
-  "Dynamic Function with return" : {
-    "prefix": "_dfr",
-    "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base}",
-      "\t${4:rtn}: $5",      
-      "\t$0"
-    ],
-    "description": "New dynamic function with return"
-  },
-  "Dynamic Pure Function with return" : {
-    "prefix": "_dpfr",
-    "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base} as pure",
-      "\t${4:rtn}: $5",      
-      "\t$0"
-    ],
-    "description": "New dynamic pure function with return"
-  },
-  "Dynamic Single Line Function" : {
-    "prefix": "_dsfr",
-    "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base} as (${4:rtn}: $5)"      
-    ],
-    "description": "New single line dynamic function with return"
-  },
-  "Dynamic Pure Single Line Function" : {
-    "prefix": "_dpsfr",
-    "body": [  
-      "${1:delegate} <- (${2:params}) is ${3:base} as pure (${4:rtn}: $5)"
-    ],
-    "description": "New pure single line dynamic function with return"
-  },
-  "Extends Function with return" : {
-    "prefix": "_efr",
-    "body": [  
-      "$1() is ${2:base}",
-      "\t<- ${3:rtn} as ${4:type}: $5",
-      "\t$0"
-    ],
-    "description": "New function extending abstract function with return"
-  },
-  "Extends Function one param" : {
-    "prefix": "_ef1",
-    "body": [  
-      "$1() is ${2:base}",
-      "\t-> ${3:arg} as ${4:type}",
-      "\t$0"
-    ],
-    "description": "New function extending abstract function one parameter"
-  },
-  "Extends Function one param with return" : {
-    "prefix": "_efr1",
-    "body": [  
-      "$1() is ${2:base}",
-      "\t-> ${3:arg1} as ${4:type}",
-      "\t<- ${5:rtn} as ${6:type}: $7",
-      "\t$0"
-    ],
-    "description": "New function extending abstract function one parameter and return"
-  },
-  "Extends Function two params" : {
-    "prefix": "_ef2",
-    "body": [  
-      "$1() is ${2:base}",
-      "\t->",
-      "\t\t${3:arg1} as ${4:type}",
-      "\t\t${5:arg2} as ${6:type}",
-      "\t$0"
-    ],
-    "description": "New function extending abstract function two parameters"
-  },
-  "Extends Function two params and return" : {
-    "prefix": "_efr2",
-    "body": [  
-      "$1() is ${2:base}",
-      "\t->",
-      "\t\t${3:arg1} as ${4:type}",
-      "\t\t${5:arg2} as ${6:type}",
-      "\t<-",
-      "\t\t${7:rtn} as ${8:type}: $9",
-      "\t$0"
-    ],
-    "description": "New function extending abstract function two parameters and return"
-  },
-  "Method/Function/Text" : {
-    "prefix": "_mf",
-    "body": [  
-      "$1()",
-      "\t$0"
-    ],
-    "description": "New function or method"
-  },
-  "Method/Function with return" : {
-    "prefix": "_mfr",
-    "body": [  
-      "$1()",
-      "\t<- ${2:rtn} as ${3:type}: $4",
-      "\t$0"
-    ],
-    "description": "New function or method with return"
-  },
-  "Method/Function one param" : {
-    "prefix": "_mf1",
-    "body": [  
-      "$1()",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t$0"
-    ],
-    "description": "New function or method one parameter"
-  },
-  "Method/Function one param with return" : {
-    "prefix": "_mfr1",
-    "body": [  
-      "$1()",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t<- ${4:rtn} as ${5:type}: $6",
-      "\t$0"
-    ],
-    "description": "New function or method one parameter and return"
-  },
-  "Method/Function two params" : {
-    "prefix": "_mf2",
-    "body": [  
-      "$1()",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t$0"
-    ],
-    "description": "New function or method two parameters"
-  },
-  "Method/Function two params and return" : {
-    "prefix": "_mfr2",
-    "body": [  
-      "$1()",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t<-",
-      "\t\t${6:rtn} as ${7:type}: $8",
-      "\t$0"
-    ],
-    "description": "New function or method two parameters and return"
-  },
-  "Abstract Method/Function" : {
-    "prefix": "_amf",
-    "body": [  
-      "$1() as abstract",
-      "\t$0"
-    ],
-    "description": "New abstract function or method"
-  },
-  "Abstract Method/Function with return" : {
-    "prefix": "_amfr",
-    "body": [  
-      "$1() as abstract",
-      "\t<- ${2:rtn} as ${3:type}: $4",
-      "\t$0"
-    ],
-    "description": "New abstract function or method with return"
-  },
-  "Abstract Method/Function one param" : {
-    "prefix": "_amf1",
-    "body": [  
-      "$1() as abstract",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t$0"
-    ],
-    "description": "New abstract function or method one parameter"
-  },
-  "Abstract Method/Function one param with return" : {
-    "prefix": "_amfr1",
-    "body": [  
-      "$1() as abstract",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t<- ${4:rtn} as ${5:type}: $6",
-      "\t$0"
-    ],
-    "description": "New abstract function or method one parameter and return"
-  },
-  "Abstract Method/Function two params" : {
-    "prefix": "_amf2",
-    "body": [  
-      "$1() as abstract",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t$0"
-    ],
-    "description": "New abstract function or method two parameters"
-  },
-  "Abstract Method/Function two params and return" : {
-    "prefix": "_amfr2",
-    "body": [  
-      "$1() as abstract",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t<-",
-      "\t\t${6:rtn} as ${7:type}: $8",
-      "\t$0"
-    ],
-    "description": "New abstract function or method two parameters and return"
-  },  
-  "Override Method" : {
-    "prefix": "_om",
-    "body": [  
-      "override $1()",
-      "\t$0"
-    ],
-    "description": "Override method"
-  },
-  "Override Method with return" : {
-    "prefix": "_omr",
-    "body": [  
-      "override $1()",
-      "\t<- ${2:rtn} as ${3:type}: $4",
-      "\t$0"
-    ],
-    "description": "Override method with return"
-  },
-  "Override Method one param" : {
-    "prefix": "_om1",
-    "body": [  
-      "override $1()",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t$0"
-    ],
-    "description": "Override method one parameter"
-  },
-  "Override Method one param with return" : {
-    "prefix": "_omr1",
-    "body": [  
-      "override $1()",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t<- ${4:rtn} as ${5:type}: $6",
-      "\t$0"
-    ],
-    "description": "Override method one parameter and return"
-  },
-  "Override Method two params" : {
-    "prefix": "_om2",
-    "body": [  
-      "override $1()",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t$0"
-    ],
-    "description": "Override method two parameters"
-  },
-  "Override Method two params and return" : {
-    "prefix": "_omr2",
-    "body": [  
-      "override $1()",
-      "\t->",
-      "\t\t${2:arg1} as ${3:type}",
-      "\t\t${4:arg2} as ${5:type}",
-      "\t<-",
-      "\t\t${6:rtn} as ${7:type}: $8",
-      "\t$0"
-    ],
-    "description": "Override method two parameters and return"
-  },
-  "Operator" : {
-    "prefix": "_op",
-    "body": [  
-      "operator ${1|++,--|}",      
-      "\t$0"
-    ],
-    "description": "Operator mutation"
-  },
-  "Operator and return" : {
-    "prefix": "_opr",
-    "body": [  
-      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|}",
-      "\t<- ${2:rtn} as ${3:type}: $4",
-      "\t$0"
-    ],
-    "description": "Operator and return"
-  },
-  "Operator one param" : {
-    "prefix": "_op1",
-    "body": [  
-      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||}",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t$0"
-    ],
-    "description": "Operator one parameter"
-  },
-  "Operator one param and return" : {
-    "prefix": "_opr1",
-    "body": [  
-      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|}",
-      "\t-> ${2:arg} as ${3:type}",
-      "\t<- ${4:rtn} as ${5:type}: $6",
-      "\t$0"
-    ],
-    "description": "Operator one parameter and return"
-  },
-  "If with assignment" : {
-    "prefix": "_ia",
-    "body": [  
-      "if $1 := $2 with $3",      
-      "\t$4",      
-      "$0"
-    ],
-    "description": "If statement using assignment"
-  },
-  "If with guarded assignment" : {
-    "prefix": "_iga",
-    "body": [  
-      "if $1 ?= $2 with $3",      
-      "\t$4",      
-      "$0"
-    ],
-    "description": "If statement using assignment"
-  },
-  "Switch statement" : {
-    "prefix": "_ss",
-    "body": [  
-      "switch $1",
-      "\tcase $2",
-      "\t\t$3",
-      "\tdefault",      
-      "\t\t$0"
-    ],
-    "description": "Switch statement"
-  },
-  "Switch expression" : {
-    "prefix": "_se",
-    "body": [  
-      "${1:result} <- switch $2",
-      "\t${3:rtn} as ${4:type}: $5",
-      "\tcase $6",
-      "\t\t$7",
-      "\tdefault",      
-      "\t\t$0"
-    ],
-    "description": "Switch expression"
-  },
-  "Try statement" : {
-    "prefix": "_t",
-    "body": [  
-      "try",
-      "\t$0"
-    ],
-    "description": "Try statement"
-  },
-  "Try one param statement" : {
-    "prefix": "_t1",
-    "body": [  
-      "try",
-      "\t-> ${1:param} <- ${2:access}",
-      "\t$0"
-    ],
-    "description": "Try with one param statement"
-  },
-  "Try two params statement" : {
-    "prefix": "_t2",
-    "body": [  
-      "try",
-      "\t->",
-      "\t\t${1:param1} <- ${2:access1}",
-      "\t\t${3:param2} <- ${4:access2}",
-      "\t$0"
-    ],
-    "description": "Try with two params statement"
-  },
-  "Try and return statement" : {
-    "prefix": "_tr",
-    "body": [  
-      "${1:result} <- try",
-      "\t<- ${2:rtn} as ${3:type}: $4",
-      "\t$0"
-    ],
-    "description": "Try with return statement"
-  },
-  "Try one param and return statement" : {
-    "prefix": "_tr1",
-    "body": [  
-      "${1:result} <- try",
-      "\t-> ${2:param} <- ${3:access}",
-      "\t<- ${4:rtn} as ${5:type}: $6",
-      "\t$0"
-    ],
-    "description": "Try with one param and return statement"
-  },
-  "Try two params and return statement" : {
-    "prefix": "_tr2",
-    "body": [  
-      "${1:result} <- try",
-      "\t->",
-      "\t\t${2:param1} <- ${3:access1}",
-      "\t\t${4:param2} <- ${5:access2}",
-      "\t<-",
-      "\t\t${6:rtn} as ${7:type}: $8",
-      "\t$0"
-    ],
-    "description": "Try with two params and return statement"
-  },
-  "Try catch statement" : {
-    "prefix": "_tc",
-    "body": [  
-      "try",
-      "\t$1",
-      "catch",
-      "\t-> ${2:ex} as ${3:Exception}",
-      "\t$0"      
-    ],
-    "description": "Try catch statement"
-  },
-  "Try catch finally statement" : {
-    "prefix": "_tcf",
-    "body": [  
-      "try",
-      "\t$1",
-      "catch",
-      "\t-> ${2:ex} as ${3:Exception}",
-      "\t$4",
-      "finally",      
-      "\t$0"
-    ],
-    "description": "Try catch finally statement"
-  },
-  "While Loop" : {
-    "prefix": "_wl",
-    "body": [  
-      "while ${1:item?}",      
-      "\t$0"
-    ],
-    "description": "While Loop"
-  },
-  "Do/While Loop" : {
-    "prefix": "_dwl",
-    "body": [
-      "do",
-      "\t$0",
-      "while ${1:item?}"      
-    ],
-    "description": "Do/While Loop"
-  },
-  "For Loop In" : {
-    "prefix": "_fli",
-    "body": [  
-      "for ${1:item} in ${2:collection}",      
-      "\t$0"
-    ],
-    "description": "For Loop"
-  },
-  "For Loop" : {
-    "prefix": "_fl",
-    "body": [  
-      "for ${1:i} in ${2:1} ... ${3:10}",      
-      "\t$0"
-    ],
-    "description": "For Loop"
-  },
-  "For Loop By Increment" : {
-    "prefix": "_flbi",
-    "body": [  
-      "for ${1:i} in ${2:1} ... ${3:10} by ${4:2}",      
-      "\t$0"
-    ],
-    "description": "For Loop by increment"
-  },
-  "For Loop To Stream" : {
-    "prefix": "_fls",
-    "body": [  
-      "for ${1:i} in ${2:1} ... ${3:10} | ${4|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} > ${5:stdout}"      
-    ],
-    "description": "For Loop to Stream"
-  },
-  "For Loop To Stream and Collect" : {
-    "prefix": "_flsc",
-    "body": [  
-      "${1:result} <- for ${2:i} in ${3:1} ... ${4:10} | ${5|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} | collect as ${6:type}"      
-    ],
-    "description": "For Loop to Stream and Collect"
-  },
-  "Cat To Stream" : {
-    "prefix": "_cts",
-    "body": [  
-      "cat ${1:collection} | ${2|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} > ${3:stdout}"      
-    ],
-    "description": "Cat to Stream"
-  },
-  "Cat To Stream and Collect" : {
-    "prefix": "_ctsc",
-    "body": [  
-      "${1:result} <- cat ${2:collection} | ${3|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} | collect as ${4:type}"      
-    ],
-    "description": "Cat to Stream and Collect"
+    "description": "Defines Service"
   },
   "Basic Package" : {
-    "prefix": "_bp",
+    "prefix": "_defpa1",
     "body": [  
       "defines package",
       "",
@@ -627,7 +145,7 @@
     "description": "Basic Package Construct list source files"
   },
   "Simple Project Package" : {
-    "prefix": "_spp",
+    "prefix": "_defpa2",
     "body": [  
       "defines package",
       "",
@@ -641,7 +159,7 @@
     "description": "Simple Project Package Construct no dependencies"
   },
   "Project Package" : {
-    "prefix": "_pp",
+    "prefix": "_defpa3",
     "body": [  
       "defines package",
       "",
@@ -668,7 +186,7 @@
     "description": "Project Package Construct"
   },
   "Full Package" : {
-    "prefix": "_fp",
+    "prefix": "_defpa3",
     "body": [  
       "defines package",
       "",
@@ -708,6 +226,639 @@
       "$0"
     ],
     "description": "Full Package Construct"
+  },
+  "Extend Class/Component/Record/Function" : {
+    "prefix": "_ex",
+    "body": [  
+      "$1 is $2",
+      "\t$0"
+    ],
+    "description": "New Class/Component/Record/Function extending base"
+  },
+  "Abstract Class/Component/Record" : {
+    "prefix": "_abs",
+    "body": [  
+      "$1 as abstract",
+      "\t$0"
+    ],
+    "description": "New Abstract Class/Component/Record"
+  },   
+  "Abstract Class/Component/Record extending" : {
+    "prefix": "_absex",
+    "body": [  
+      "$1 is ${2:base} as abstract",
+      "\t$0"
+    ],
+    "description": "New Abstract Class/Component/Record extending base"
+  }, 
+  "Open Class/Component/Record extending" : {
+    "prefix": "_opex",
+    "body": [  
+      "$1 is ${2:base} as open",
+      "\t$0"
+    ],
+    "description": "New open Class/Component/Record extending base"
+  },
+  "Extend Trait" : {
+    "prefix": "_extr",
+    "body": [  
+      "$1 with trait of ${2:trait}",
+      "\t$0"
+    ],
+    "description": "New Trait with Traits of base"
+  },
+  "Class with Trait delegation" : {
+    "prefix": "_clwtd1",
+    "body": [  
+      "$1 with trait of ${2:trait} by ${3:property}",
+      "\t$0"
+    ],
+    "description": "New Class with a trait delegation"
+  },
+  "Class with multiple Trait delegation" : {
+    "prefix": "_clwtd2",
+    "body": [  
+      "$1 with trait of ${2:trait1} by ${3:property1}, ${4:trait2} by ${5:property2}",
+      "\t$0"
+    ],
+    "description": "New Class with multiple trait delegation"
+  },
+  "Class with Traits" : {
+    "prefix": "_clwt",
+    "body": [  
+      "$1 with trait of ${2:trait}",
+      "\t$0"
+    ],
+    "description": "New Class with Traits"
+  },
+  "Extend Class adding Traits" : {
+    "prefix": "_exclwt",
+    "body": [  
+      "$1 is ${2:base} with trait of ${3:trait}",
+      "\t$0"
+    ],
+    "description": "New Class extending base adding Traits"
+  },
+  "Abstract Extend Class adding Traits" : {
+    "prefix": "_absexclwt",
+    "body": [  
+      "$1 is ${2:base} with trait of ${3:trait} as abstract",
+      "\t$0"
+    ],
+    "description": "New Abstract Class extending base adding Traits"
+  },       
+  "Dynamic Function" : {
+    "prefix": "_dyfun",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base}",      
+      "\t$0"
+    ],
+    "description": "New dynamic function extending abstract function"
+  },
+  "Dynamic Pure Function" : {
+    "prefix": "_dypufun",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base}",      
+      "\t$0"
+    ],
+    "description": "New dynamic pure function extending abstract function"
+  },
+  "Dynamic Function with return" : {
+    "prefix": "_dyfunr",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base}",
+      "\t${4:rtn}: $5",      
+      "\t$0"
+    ],
+    "description": "New dynamic function with return"
+  },
+  "Dynamic Pure Function with return" : {
+    "prefix": "_dypufunr",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base} as pure",
+      "\t${4:rtn}: $5",      
+      "\t$0"
+    ],
+    "description": "New dynamic pure function with return"
+  },
+  "Dynamic Single Line Function" : {
+    "prefix": "_dysfunr",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base} as (${4:rtn}: $5)"      
+    ],
+    "description": "New single line dynamic function with return"
+  },
+  "Dynamic Pure Single Line Function" : {
+    "prefix": "_dypusfunr",
+    "body": [  
+      "${1:delegate} <- (${2:params}) is ${3:base} as pure (${4:rtn}: $5)"
+    ],
+    "description": "New pure single line dynamic function with return"
+  },
+  "Extends Function with return" : {
+    "prefix": "_exfunr",
+    "body": [  
+      "$1() is ${2:base}",
+      "\t<- ${3:rtn} as ${4:type}: $5",
+      "\t$0"
+    ],
+    "description": "New function extending abstract function with return"
+  },
+  "Extends Function one param" : {
+    "prefix": "_exfun1",
+    "body": [  
+      "$1() is ${2:base}",
+      "\t-> ${3:arg} as ${4:type}",
+      "\t$0"
+    ],
+    "description": "New function extending abstract function one parameter"
+  },
+  "Extends Function one param with return" : {
+    "prefix": "_exfunr1",
+    "body": [  
+      "$1() is ${2:base}",
+      "\t-> ${3:arg1} as ${4:type}",
+      "\t<- ${5:rtn} as ${6:type}: $7",
+      "\t$0"
+    ],
+    "description": "New function extending abstract function one parameter and return"
+  },
+  "Extends Function two params" : {
+    "prefix": "_exfun2",
+    "body": [  
+      "$1() is ${2:base}",
+      "\t->",
+      "\t\t${3:arg1} as ${4:type}",
+      "\t\t${5:arg2} as ${6:type}",
+      "\t$0"
+    ],
+    "description": "New function extending abstract function two parameters"
+  },
+  "Extends Function two params and return" : {
+    "prefix": "_exfunr2",
+    "body": [  
+      "$1() is ${2:base}",
+      "\t->",
+      "\t\t${3:arg1} as ${4:type}",
+      "\t\t${5:arg2} as ${6:type}",
+      "\t<-",
+      "\t\t${7:rtn} as ${8:type}: $9",
+      "\t$0"
+    ],
+    "description": "New function extending abstract function two parameters and return"
+  },
+  "Method/Function/Text" : {
+    "prefix": "_methfun",
+    "body": [  
+      "$1()",
+      "\t$0"
+    ],
+    "description": "New function or method"
+  },
+  "Method/Function with return" : {
+    "prefix": "_methfunr",
+    "body": [  
+      "$1()",
+      "\t<- ${2:rtn} as ${3:type}: $4",
+      "\t$0"
+    ],
+    "description": "New function or method with return"
+  },
+  "Method/Function one param" : {
+    "prefix": "_methfun1",
+    "body": [  
+      "$1()",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t$0"
+    ],
+    "description": "New function or method one parameter"
+  },
+  "Method/Function one param with return" : {
+    "prefix": "_methfunr1",
+    "body": [  
+      "$1()",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t<- ${4:rtn} as ${5:type}: $6",
+      "\t$0"
+    ],
+    "description": "New function or method one parameter and return"
+  },
+  "Method/Function two params" : {
+    "prefix": "_methfun2",
+    "body": [  
+      "$1()",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "\t$0"
+    ],
+    "description": "New function or method two parameters"
+  },
+  "Method/Function two params and return" : {
+    "prefix": "_methfunr2",
+    "body": [  
+      "$1()",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "\t<-",
+      "\t\t${6:rtn} as ${7:type}: $8",
+      "\t$0"
+    ],
+    "description": "New function or method two parameters and return"
+  },
+  "Abstract Method/Function" : {
+    "prefix": "_absmethfun",
+    "body": [  
+      "$1() as abstract",
+      "$0"
+    ],
+    "description": "New abstract function or method"
+  },
+  "Abstract Method/Function with return" : {
+    "prefix": "_absmethfunr",
+    "body": [  
+      "$1() as abstract",
+      "\t<- ${2:rtn} as ${3:type}",
+      "$0"
+    ],
+    "description": "New abstract function or method with return"
+  },
+  "Abstract Method/Function one param" : {
+    "prefix": "_absmethfun1",
+    "body": [  
+      "$1() as abstract",
+      "\t-> ${2:arg} as ${3:type}",
+      "$0"
+    ],
+    "description": "New abstract function or method one parameter"
+  },
+  "Abstract Method/Function one param with return" : {
+    "prefix": "_absmethfunr1",
+    "body": [  
+      "$1() as abstract",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t<- ${4:rtn} as ${5:type}",
+      "$0"
+    ],
+    "description": "New abstract function or method one parameter and return"
+  },
+  "Abstract Method/Function two params" : {
+    "prefix": "_absmethfun2",
+    "body": [  
+      "$1() as abstract",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "$0"
+    ],
+    "description": "New abstract function or method two parameters"
+  },
+  "Abstract Method/Function two params and return" : {
+    "prefix": "_absmethfr2",
+    "body": [  
+      "$1() as abstract",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "\t<-",
+      "\t\t${6:rtn} as ${7:type}",
+      "$0"
+    ],
+    "description": "New abstract function or method two parameters and return"
+  },  
+  "Override Method" : {
+    "prefix": "_ovmeth",
+    "body": [  
+      "override $1()",
+      "\t$0"
+    ],
+    "description": "Override method"
+  },
+  "Override Method with return" : {
+    "prefix": "_ovmethr",
+    "body": [  
+      "override $1()",
+      "\t<- ${2:rtn} as ${3:type}: $4",
+      "\t$0"
+    ],
+    "description": "Override method with return"
+  },
+  "Override Method one param" : {
+    "prefix": "_ovmeth1",
+    "body": [  
+      "override $1()",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t$0"
+    ],
+    "description": "Override method one parameter"
+  },
+  "Override Method one param with return" : {
+    "prefix": "_ovmethr1",
+    "body": [  
+      "override $1()",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t<- ${4:rtn} as ${5:type}: $6",
+      "\t$0"
+    ],
+    "description": "Override method one parameter and return"
+  },
+  "Override Method two params" : {
+    "prefix": "_ovmeth2",
+    "body": [  
+      "override $1()",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "\t$0"
+    ],
+    "description": "Override method two parameters"
+  },
+  "Override Method two params and return" : {
+    "prefix": "_ovmethr2",
+    "body": [  
+      "override $1()",
+      "\t->",
+      "\t\t${2:arg1} as ${3:type}",
+      "\t\t${4:arg2} as ${5:type}",
+      "\t<-",
+      "\t\t${6:rtn} as ${7:type}: $8",
+      "\t$0"
+    ],
+    "description": "Override method two parameters and return"
+  },
+  "Abstract Operator" : {
+    "prefix": "_absop",
+    "body": [  
+      "operator ${1|++,--|}",      
+      "$0"
+    ],
+    "description": "Abstract Operator mutation"
+  },
+  "Abstract Operator and return" : {
+    "prefix": "_absopr",
+    "body": [  
+      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|}",
+      "\t<- ${2:rtn} as ${3:type}",
+      "$0"
+    ],
+    "description": "Abstract Operator and return"
+  },
+  "Abstract Operator one param" : {
+    "prefix": "_abasop1",
+    "body": [  
+      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||}",
+      "\t-> ${2:arg} as ${3:type}",
+      "$0"
+    ],
+    "description": "Abstract Operator one parameter"
+  },
+  "Abstract Operator one param and return" : {
+    "prefix": "_absopr1",
+    "body": [  
+      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|}",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t<- ${4:rtn} as ${5:type}",
+      "$0"
+    ],
+    "description": "Abstract Operator one parameter and return"
+  },
+  "Operator" : {
+    "prefix": "_op",
+    "body": [  
+      "operator ${1|++,--|}",      
+      "\t$0"
+    ],
+    "description": "Operator mutation"
+  },
+  "Operator and return" : {
+    "prefix": "_opr",
+    "body": [  
+      "operator ${1|$,?,!,#<,#>,#?,#^,length,empty|}",
+      "\t<- ${2:rtn} as ${3:type}: $4",
+      "\t$0"
+    ],
+    "description": "Operator and return"
+  },
+  "Operator one param" : {
+    "prefix": "_op1",
+    "body": [  
+      "operator ${1|+=,-=,*=,/=,:=:,:~:,:^:,\\||}",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t$0"
+    ],
+    "description": "Operator one parameter"
+  },
+  "Operator one param and return" : {
+    "prefix": "_opr1",
+    "body": [  
+      "operator ${1|+,-,*,/,~,<,<=,>=,>,==,!=,<=>,<~>,<<,>>,not,and,or,xor,contains,matches,mod,rem,abs,sqrt|}",
+      "\t-> ${2:arg} as ${3:type}",
+      "\t<- ${4:rtn} as ${5:type}: $6",
+      "\t$0"
+    ],
+    "description": "Operator one parameter and return"
+  },
+  "If with assignment" : {
+    "prefix": "_ifa",
+    "body": [  
+      "if $1 := $2 with $3",      
+      "\t$4",      
+      "$0"
+    ],
+    "description": "If statement using assignment"
+  },
+  "If with guarded assignment" : {
+    "prefix": "_ifga",
+    "body": [  
+      "if $1 ?= $2 with $3",      
+      "\t$4",      
+      "$0"
+    ],
+    "description": "If statement using assignment"
+  },
+  "Switch statement" : {
+    "prefix": "_sw",
+    "body": [  
+      "switch $1",
+      "\tcase $2",
+      "\t\t$3",
+      "\tdefault",      
+      "\t\t$0"
+    ],
+    "description": "Switch statement"
+  },
+  "Switch expression" : {
+    "prefix": "_swex",
+    "body": [  
+      "${1:result} <- switch $2",
+      "\t${3:rtn} as ${4:type}: $5",
+      "\tcase $6",
+      "\t\t$7",
+      "\tdefault",      
+      "\t\t$0"
+    ],
+    "description": "Switch expression"
+  },
+  "Try statement" : {
+    "prefix": "_tr",
+    "body": [  
+      "try",
+      "\t$0"
+    ],
+    "description": "Try statement"
+  },
+  "Try one param statement" : {
+    "prefix": "_tr1",
+    "body": [  
+      "try",
+      "\t-> ${1:param} <- ${2:access}",
+      "\t$0"
+    ],
+    "description": "Try with one param statement"
+  },
+  "Try two params statement" : {
+    "prefix": "_tr2",
+    "body": [  
+      "try",
+      "\t->",
+      "\t\t${1:param1} <- ${2:access1}",
+      "\t\t${3:param2} <- ${4:access2}",
+      "\t$0"
+    ],
+    "description": "Try with two params statement"
+  },
+  "Try and return statement" : {
+    "prefix": "_trex",
+    "body": [  
+      "${1:result} <- try",
+      "\t<- ${2:rtn} as ${3:type}: $4",
+      "\t$0"
+    ],
+    "description": "Try with return statement"
+  },
+  "Try one param and return statement" : {
+    "prefix": "_trex1",
+    "body": [  
+      "${1:result} <- try",
+      "\t-> ${2:param} <- ${3:access}",
+      "\t<- ${4:rtn} as ${5:type}: $6",
+      "\t$0"
+    ],
+    "description": "Try with one param and return statement"
+  },
+  "Try two params and return statement" : {
+    "prefix": "_trex2",
+    "body": [  
+      "${1:result} <- try",
+      "\t->",
+      "\t\t${2:param1} <- ${3:access1}",
+      "\t\t${4:param2} <- ${5:access2}",
+      "\t<-",
+      "\t\t${6:rtn} as ${7:type}: $8",
+      "\t$0"
+    ],
+    "description": "Try with two params and return statement"
+  },
+  "Throw Exception" : {
+    "prefix": "_threx",
+    "body": [  
+      "throw ${1:Exception}(${2:params})",      
+      "$0"      
+    ],
+    "description": "Throw new Exception"
+  },
+  "Try catch statement" : {
+    "prefix": "_trca",
+    "body": [  
+      "try",
+      "\t$1",
+      "catch",
+      "\t-> ${2:ex} as ${3:Exception}",
+      "\t$0"      
+    ],
+    "description": "Try catch statement"
+  },
+  "Try catch finally statement" : {
+    "prefix": "_trcaf",
+    "body": [  
+      "try",
+      "\t$1",
+      "catch",
+      "\t-> ${2:ex} as ${3:Exception}",
+      "\t$4",
+      "finally",      
+      "\t$0"
+    ],
+    "description": "Try catch finally statement"
+  },
+  "While Loop" : {
+    "prefix": "_wh",
+    "body": [  
+      "while ${1:item?}",      
+      "\t$0"
+    ],
+    "description": "While Loop"
+  },
+  "Do/While Loop" : {
+    "prefix": "_dowh",
+    "body": [
+      "do",
+      "\t$0",
+      "while ${1:item?}"      
+    ],
+    "description": "Do/While Loop"
+  },
+  "For Loop In" : {
+    "prefix": "_foli",
+    "body": [  
+      "for ${1:item} in ${2:collection}",      
+      "\t$0"
+    ],
+    "description": "For Loop"
+  },
+  "For Loop" : {
+    "prefix": "_fol",
+    "body": [  
+      "for ${1:i} in ${2:1} ... ${3:10}",      
+      "\t$0"
+    ],
+    "description": "For Loop"
+  },
+  "For Loop By Increment" : {
+    "prefix": "_folbi",
+    "body": [  
+      "for ${1:i} in ${2:1} ... ${3:10} by ${4:2}",      
+      "\t$0"
+    ],
+    "description": "For Loop by increment"
+  },
+  "For Loop To Stream" : {
+    "prefix": "_fols",
+    "body": [  
+      "for ${1:i} in ${2:1} ... ${3:10} | ${4|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} > ${5:stdout}"      
+    ],
+    "description": "For Loop to Stream"
+  },
+  "For Loop To Stream and Collect" : {
+    "prefix": "_folsc",
+    "body": [  
+      "${1:result} <- for ${2:i} in ${3:1} ... ${4:10} | ${5|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} | collect as ${6:type}"      
+    ],
+    "description": "For Loop to Stream and Collect"
+  },
+  "Cat To Stream" : {
+    "prefix": "_cats",
+    "body": [  
+      "cat ${1:collection} | ${2|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} > ${3:stdout}"      
+    ],
+    "description": "Cat to Stream"
+  },
+  "Cat To Stream and Collect" : {
+    "prefix": "_catsc",
+    "body": [  
+      "${1:result} <- cat ${2:collection} | ${3|filter by ,select with ,map by ,sort by ,group by ,join with ,split by ,uniq by ,tee in ,head ,tail ,skip ,flatten,call,async|} | collect as ${4:type}"      
+    ],
+    "description": "Cat to Stream and Collect"
   }
-
 }

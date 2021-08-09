@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(operator|defines)\b</string>
+			<string>\b(operator|defines|public|private|protected|abstract|dispatcher|override)\b</string>
 			<key>name</key>
 			<string>markup.bold.ek9</string>
 		</dict>
@@ -61,7 +61,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(mod|rem|sqrt|and|or|xor|abs|not|contain|contains|matches|begins|ends|length|read|write|open|close|override|public|private|protected|return|with|isolated|pure|abstract|dispatcher|only)\b</string>
+			<string>\b(mod|rem|sqrt|and|or|xor|abs|not|contain|contains|matches|begins|ends|length|read|write|open|close|return|with|isolated|pure|only)\b</string>
 			<key>name</key>
 			<string>keyword.operator.ek9</string>
 		</dict>

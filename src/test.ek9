@@ -2,10 +2,10 @@
 defines module net.customer
   
   defines type
-    PostCode as String
+    PostCode as String        
 
   defines constant
-    
+      
     v1 <- 21.0  
     v2 <- 6.0
     v3 <- 5
