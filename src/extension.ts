@@ -10,15 +10,16 @@ import { ChildProcess, spawn } from "child_process";
 let client: LanguageClient;
 let server: ChildProcess;
 
-function startServer(serverPath : string, ek9Path : string) {
+function startServer(serverPath : string, ek9Path : string, languageHelp : boolean) {
 
     if (serverPath && ek9Path) {
         console.log('EK9 extension active: lsp server is [' + serverPath + '] [' + ek9Path + ']');
         const serverOptions: ServerOptions = async (): Promise<ChildProcess> => {
+            const params : string = languageHelp ? "-ls -lsh" : "-ls";
             const args = [
                 "-jar",
                 ek9Path,
-                "\"-ls\""
+                params
             ];
             server = spawn(serverPath, args);
             return server;
@@ -68,14 +69,21 @@ export function activate(context: ExtensionContext) {
         console.error('EK9 extension: ek9-ls.compilerPath must be set to the path for ek9.jar (the compiler)');
     }
 
+    const languageHelp : boolean | undefined = config.get("languageHelp")
+    if(languageHelp)
+    {
+      console.log('EK9 extension: languageHelp [' + languageHelp + ']');
+    }
+
     const serverPath : string = javaCommand ? javaCommand : "";
     const ek9Path : string = compilerPath ? compilerPath : "";
+    const ek9LanguageHoverHelp : boolean = languageHelp ? languageHelp : false;
 
-    startServer(serverPath, ek9Path);
+    startServer(serverPath, ek9Path, ek9LanguageHoverHelp);
 
     context.subscriptions.push(commands.registerCommand("ek9-ls.restartServer", async () => {
         await killServer();
-        startServer(serverPath, ek9Path);
+        startServer(serverPath, ek9Path, ek9LanguageHoverHelp);
     }));
 
     context.subscriptions.push(commands.registerCommand("ek9-ls.killServer", async () => {

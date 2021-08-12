@@ -35,6 +35,12 @@
 					"type": "string",
 					"default": "",
 					"description": "The file path to ek9.jar."
+				},
+        "ek9-ls.languageHelp": {
+					"scope": "window",
+					"type": "boolean",
+					"default": true,
+					"description": "Is Hover/Help required for EK9."
 				}
 			}
 		},

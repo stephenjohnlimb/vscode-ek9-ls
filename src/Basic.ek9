@@ -60,6 +60,8 @@ defines module net.customer.extend
       dim2 <- dim1 + 1.5
       dim3 <- dim1 + 1
       
+      aString <- ""
+
       //use prefix and suffix aka first last
       theSize <- #<dim3
       theType <- #>dim3
