@@ -1,0 +1,21 @@
+#!ek9
+defines module introduction
+
+  defines function
+    
+    aFunction()
+      -> param1 as String
+      
+      stdout <- Stdout()
+      msg <- param1? <- `Hello ${param1}` else "Hi unknown person"      
+      blank <- ""
+      alsoBlank <- ``
+      // Just output the message
+      stdout.println(msg)
+  
+  defines program
+    SimpleProgram()
+      -> argv as Strings
+      aFunction(argv)
+
+//EOF

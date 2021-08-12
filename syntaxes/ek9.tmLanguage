@@ -101,6 +101,12 @@
 			<key>name</key>
 			<string>string.other.ek9</string>
 		</dict>
+    <dict>
+			<key>match</key>
+			<string>""</string>
+			<key>name</key>
+			<string>string.quoted.double.ek9</string>
+		</dict>
 		<dict>
 			<key>begin</key>
 			<string>"</string>
@@ -117,6 +123,12 @@
 					<string>constant.character.escape.ek9</string>
 				</dict>
 			</array>
+		</dict>
+    <dict>
+			<key>match</key>
+			<string>``</string>
+			<key>name</key>
+			<string>punctuation.section.embedded.ek9</string>
 		</dict>
 		<dict>
 			<key>begin</key>

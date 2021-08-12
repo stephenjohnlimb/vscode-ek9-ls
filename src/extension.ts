@@ -18,7 +18,7 @@ function startServer(serverPath : string, ek9Path : string) {
             const args = [
                 "-jar",
                 ek9Path,
-                "-ls"
+                "\"-ls\""
             ];
             server = spawn(serverPath, args);
             return server;
@@ -26,6 +26,9 @@ function startServer(serverPath : string, ek9Path : string) {
 
         const clientOptions: LanguageClientOptions = {
             documentSelector: [{ scheme: "file", language: "ek9" }],
+            synchronize: {
+              fileEvents: workspace.createFileSystemWatcher('**/*.ek9')
+            },
             diagnosticCollectionName: "ek9-ls",
         };
 
