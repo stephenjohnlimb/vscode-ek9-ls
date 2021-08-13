@@ -12,6 +12,8 @@ Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java ie
 
 Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar (that has the compiler). 
 
+If you want help on the EK9 language itself then set `"ek9-ls.languageHelp"` to true.
+
 Now includes text mate syntax highlighting and code snippets for common operations.
 
 Extension will work without the ek9.jar compiler, but the ek9.jar language server will provide additional hover text and diagnostics.
