@@ -1,5 +1,7 @@
 # EK9 Language Server
 
+![GitHub top language](https://img.shields.io/github/languages/top/stephenjohnlimb/vscode-ek9-ls)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/stephenjohnlimb/vscode-ek9-ls)
 ![GitHub](https://img.shields.io/github/license/stephenjohnlimb/vscode-ek9-ls)
 
 A vscode language server extension for the EK9 programming language.
