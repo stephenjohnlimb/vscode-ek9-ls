@@ -8,11 +8,13 @@ defines module net.customer.extend
     OK could do all sorts with textmate to improve.
     This is workable especially when you expand tabs to spaces and use just two spaces
     Now with folding you can include all sorts in the same file related traits, classes and function.
-    IntelliJ also works well with the EK9 textmate bundle and has faint lines out of the box.
+    IntelliJ/VSCode also works well with the EK9 textmate bundle and has faint lines out of the box.
 
-    Now if you use VSCODE, you can use this extension.
+    Now if you use VSCODE, you can use the extension on https://github.com/stephenjohnlimb/vscode-ek9-ls.
     This includes code snippets, syntax highlighting.
-    There is a language server on way as well, with language hover, symbol lookup, diagnotics, etc.
+    There is a language server on its way as well, with language hover, symbol lookup, diagnotics, etc.
+
+    This example is just used for marking out syntax has no real functiobality.
   -?>
   
   defines constant
@@ -25,7 +27,7 @@ defines module net.customer.extend
   defines type
     
     <!-
-    here we just want to use American spelling no real value other than stopping typos by Americans
+    Here we just want to use American spelling no real value other than stopping typos.
     But lets also add some constraints on the colour we can use
     -!>
     Color as Colour constrain as
