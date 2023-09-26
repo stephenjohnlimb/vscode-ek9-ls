@@ -24,23 +24,35 @@
 			"type": "object",
 			"title": "EK9 Java Command",
 			"properties": {
+        "ek9-ls.useNative": {
+					"scope": "window",
+					"type": "boolean",
+					"default": false,
+					"description": "Use the native EK9 compiler."
+				},
 				"ek9-ls.javaCommand": {
 					"scope": "window",
 					"type": "string",
 					"default": "",
-					"description": "The file path to Java."
+					"description": "The file path to Java (if not using native)."
 				},
 				"ek9-ls.compilerPath": {
 					"scope": "window",
 					"type": "string",
 					"default": "",
-					"description": "The file path to ek9.jar."
+					"description": "The file path to ek9.jar or path to native command."
 				},
         "ek9-ls.languageHelp": {
 					"scope": "window",
 					"type": "boolean",
 					"default": true,
 					"description": "Is Hover/Help required for EK9."
+				},
+        "ek9-ls.debugVerbose": {
+					"scope": "window",
+					"type": "boolean",
+					"default": false,
+					"description": "Should the EK9 LSP show debug information in the VSCode output window?"
 				}
 			}
 		},

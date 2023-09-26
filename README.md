@@ -8,17 +8,26 @@ A vscode language server extension for the EK9 programming language.
 
 ## How to build the extension
 Clone the repo, then run `vsce package`; this will produce `ek9-ls-0.0.1.vsix`. You can now manually install that into VSCode.
+
+## Altering
+Main entery point for updating is `extension.ts` and also `package.json` for the visual configuration options.
+
+
 ## Usage
 
-Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java ie (c:\jdk-15\bin\java).
+Set the `"ek9-ls.javaCommand"` configuration setting to the full path of Java i.e. (c:\jdk-21\bin\java).
 
-Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar (that has the compiler). 
+Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of the ek9.jar or the native executable (that has the compiler). 
 
 If you want help on the EK9 language itself then set `"ek9-ls.languageHelp"` to true.
 
+If you want the EK9 LSP to display verbose debug information then set `"ek9-ls.debugVerbose"` to true.
+
 Now includes text mate syntax highlighting and code snippets for common operations.
 
-Extension will work without the ek9.jar compiler, but the ek9.jar language server will provide additional hover text and diagnostics.
+Extension will work without the ek9.jar/native compiler, language server will provide additional hover text and diagnostics.
+
+NOTE the native compiler is still work in progress and does not function correctly at present.
 
 ## Open Source
 If you'd like improvements to the syntax highlighting or the snippets please [fork](https://github.com/stephenjohnlimb/vscode-ek9-ls)
