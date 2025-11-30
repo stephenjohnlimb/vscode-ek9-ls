@@ -88,6 +88,8 @@ defines module net.customer.extend
       
       anotherInt = 45
       
+      currency <- 780#USD
+
       //Try out some new types here.
       
       res1 <- 240dpi
