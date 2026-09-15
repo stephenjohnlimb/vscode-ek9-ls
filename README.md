@@ -21,9 +21,41 @@ Also set the `"ek9-ls.compilerPath"` configuration setting to the full path of t
 
 If you want help on the EK9 language itself then set `"ek9-ls.languageHelp"` to true.
 
-If you want the EK9 LSP to display verbose debug information then set `"ek9-ls.debugVerbose"` to true.
+If you want the EK9 LSP to display verbose diagnostic logging in the VS Code output window then set
+`"ek9-ls.debugVerbose"` to true. (This controls the *language server's* own logging — it is not the
+same as debugging an EK9 program, see below.)
 
 Now includes text mate syntax highlighting and code snippets for common operations.
+
+## Debugging EK9 programs (in development)
+
+The extension contributes an `ek9` debug type so you can set breakpoints in `.ek9` files, inspect the
+call stack and local variables, and step through EK9 code. The breakpoint/variable/step mapping is
+driven by the debug info the EK9 compiler emits (compile with debug info — the `ek9 -Cg` / `withDebug`
+option — so the SMAP and `LocalVariableTable` are present).
+
+An `attach` launch configuration connects to a running EK9 program started under JDWP
+(`server=y,suspend=y`). Debugging is served by an EK9 debug adapter (a Debug Adapter Protocol server).
+This is still being wired into the compiler distribution as `ek9 -dap`; until then the extension
+connects to a debug adapter already listening on the TCP port given by `"ek9-ls.debugAdapterPort"`
+(default `4711`).
+
+Example `.vscode/launch.json`:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "ek9",
+      "request": "attach",
+      "name": "EK9: Attach to debuggee (5005)",
+      "hostName": "127.0.0.1",
+      "port": 5005
+    }
+  ]
+}
+```
 
 Extension will work without the ek9.jar/native compiler, language server will provide additional hover text and diagnostics.
 

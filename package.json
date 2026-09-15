@@ -10,7 +10,8 @@
 	},
 	"categories": [],
 	"activationEvents": [
-		"onLanguage:ek9"
+		"onLanguage:ek9",
+		"onDebugResolve:ek9"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -52,10 +53,80 @@
 					"scope": "window",
 					"type": "boolean",
 					"default": false,
-					"description": "Should the EK9 LSP show debug information in the VSCode output window?"
+					"description": "Verbose diagnostic logging for the EK9 language server itself, shown in the VS Code output window. This is language-server logging, NOT debugging an EK9 program (see ek9-ls.debugAdapterPort for that)."
+				},
+        "ek9-ls.debugAdapterPort": {
+					"scope": "window",
+					"type": "number",
+					"default": 0,
+					"description": "Development override: if set to a non-zero TCP port, the extension CONNECTS to a standalone EK9 debug adapter already listening there (for iterating on the adapter without repackaging). Leave at 0 to SPAWN 'ek9 -dap' using ek9-ls.javaCommand/ek9-ls.compilerPath (the normal path)."
 				}
 			}
 		},
+		"breakpoints": [
+			{
+				"language": "ek9"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "ek9",
+				"label": "EK9 Debug",
+				"languages": [
+					"ek9"
+				],
+				"configurationAttributes": {
+					"launch": {
+						"required": [
+							"program"
+						],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Path to the compiled EK9 jar (e.g. .ek9/<name>.jar, built with debug info via 'ek9 -Cg') to launch under the debugger. The adapter starts it under JDWP and routes its output to the Debug Console."
+							},
+							"cwd": {
+								"type": "string",
+								"description": "Working directory for the launched program."
+							}
+						}
+					},
+					"attach": {
+						"required": [
+							"hostName",
+							"port"
+						],
+						"properties": {
+							"hostName": {
+								"type": "string",
+								"description": "Host of the JDWP debuggee to attach to.",
+								"default": "127.0.0.1"
+							},
+							"port": {
+								"type": "number",
+								"description": "JDWP port of the debuggee (server=y,suspend=y).",
+								"default": 5005
+							}
+						}
+					}
+				},
+				"initialConfigurations": [
+					{
+						"type": "ek9",
+						"request": "launch",
+						"name": "EK9: Launch program",
+						"program": "${workspaceFolder}/.ek9/program.jar"
+					},
+					{
+						"type": "ek9",
+						"request": "attach",
+						"name": "EK9: Attach to debuggee (5005)",
+						"hostName": "127.0.0.1",
+						"port": 5005
+					}
+				]
+			}
+		],
 		"languages": [
 			{
 				"id": "ek9",
