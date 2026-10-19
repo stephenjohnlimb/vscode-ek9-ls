@@ -57,6 +57,10 @@ Example `.vscode/launch.json`:
 }
 ```
 
+A `launch` configuration may also give `"seed"`: the random seed the program's `SystemRandom` and `OS.random`
+draw from. Left out, each launch has a new one, shown in the Debug Console; putting that one in `launch.json`
+repeats the run's random draws exactly.
+
 Extension will work without the ek9.jar/native compiler, language server will provide additional hover text and diagnostics.
 
 NOTE the native compiler is still work in progress and does not function correctly at present.

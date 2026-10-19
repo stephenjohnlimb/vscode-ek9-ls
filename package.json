@@ -88,6 +88,10 @@
 							"cwd": {
 								"type": "string",
 								"description": "Working directory for the launched program."
+							},
+							"seed": {
+								"type": "integer",
+								"description": "The random seed the program's SystemRandom and OS.random draw from, so a run can be repeated exactly. Left out, each launch has a new one, shown in the Debug Console - put that one here to repeat the run."
 							}
 						}
 					},
